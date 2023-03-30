@@ -9,15 +9,17 @@ def main():
     
 # Accept a parameter that specifies the name of the Pokémon or PokéDex number.
 def search_for_pokemon(search_term):
-    """ Gets a list of pokemon abilities.
+    """ Gets info about a specified Pokemon from the PokeAPI.
 
     Args:
         search_term (str): Pokemon name or pokedex number.
 
     Returns:
-        list: List of Pokemon abilities.
+        dict: Dictionary of Pokemon information, if successful. Otherwise None.
     """
-    # Converts the parameter to a string, removes any leading and trailing whitespace characters, and converts it to all lowercase letters.
+    # Convert the parameter to a string.
+    # Remove any leading and trailing whitespace characters
+    # Convert to all lowercase letters.
     clean_string = str(search_term).strip().lower()
     # Send GET request to the poke api.
     print(f'Getting information for {clean_string}....', end='')
@@ -26,8 +28,7 @@ def search_for_pokemon(search_term):
     if resp_msg.ok:
         print('success.')
         pokemon_dict = resp_msg.json()
-        ability_list = [a['ability']['name'] for a in pokemon_dict['abilities']]
-        return resp_msg.json
+        return pokemon_dict
     else:
         print('failure.')
         print(f'Response code: {resp_msg.status_code} {resp_msg.reason}')
