@@ -4,6 +4,7 @@ from poke_api import search_for_pokemon
 from tkinter import messagebox
 
 
+
 root = Tk()
 root.title("Pokèmon Information Viewer")
 root.resizable(False, False)
@@ -74,6 +75,7 @@ lbl_speed.grid(row=5, column=0, sticky=E, padx=(10,5), pady=(10,5))
 bar_speed = ttk.Progressbar(frm_btm_right, orient=HORIZONTAL, length=200, maximum=255)
 bar_speed.grid(row=5,column=1, padx=(0,10), pady=5)
 
+# Create event handle for get info button
 def handle_get_info():
     # Get Pokemon name entered by the user
     poke_name = ent_name.get().strip()
@@ -101,7 +103,7 @@ def handle_get_info():
         bar_spec_def['value'] = poke_info['stats'][4]['base_stat']
         bar_speed['value'] = poke_info['stats'][5]['base_stat']
 
-# Create event handle for get info button
+# Create Get info button
 btn_get_info = ttk.Button(frm_top, text='Get Info', command=handle_get_info)
 btn_get_info.grid(row=0, column=2, padx=10, pady=10)
 
