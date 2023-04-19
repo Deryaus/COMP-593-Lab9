@@ -11,20 +11,20 @@ root.resizable(False, False)
 
 # Add Frames to window
 frm_top = ttk.Frame(root)
-frm_top.grid(row=0, column=0, columnspan=2, pady=(20.10))
+frm_top.grid(row=0, column=0, columnspan=2, pady=(20, 10))
 
 frm_btm_left = ttk.LabelFrame(root, text='Info')
-frm_btm_left.grid(row=1, column=0, padx=(20, 10,), pady=(10, 20), sticky=N)
-
+frm_btm_left.grid(row=1, column=0, padx=(20, 10), pady=(10, 20), sticky=N)
 
 frm_btm_right = ttk.LabelFrame(root, text='Pokèmon Stats')
-frm_btm_right.grid(row=1, column=1, padx=(10, 20,), pady=(10, 20))
+frm_btm_right.grid(row=1, column=1, padx=(10, 20), pady=(10, 20))
 
 
 #Add widgets to frames
 lbl_name = ttk.Label(frm_top, text='Pokèmon name:')
 lbl_name.grid(row=0, column=0, padx=(10,5), pady=10)
 
+# Create Entry box for Pokemon names
 ent_name = ttk.Entry(frm_top)
 ent_name.grid(row=0, column=1)
 
@@ -51,12 +51,12 @@ bar_hp = ttk.Progressbar(frm_btm_right, orient=HORIZONTAL, length=200, maximum=2
 bar_hp.grid(row=0,column=1, padx=(0,10), pady=5)
 
 lbl_attack = ttk.Label(frm_btm_right, text='Attack:' )
-lbl_attack.grid(row=1, column=0, sticky=E)
+lbl_attack.grid(row=1, column=0, sticky=E, padx=(10,5), pady=(10,5))
 bar_attack = ttk.Progressbar(frm_btm_right, orient=HORIZONTAL, length=200, maximum=255)
 bar_attack.grid(row=1,column=1, padx=(0,10), pady=5)
 
 lbl_defense = ttk.Label(frm_btm_right, text='Defense:')
-lbl_defense.grid(row=2, column=0, sticky=E)
+lbl_defense.grid(row=2, column=0, sticky=E, padx=(10,5), pady=(10,5))
 bar_defense = ttk.Progressbar(frm_btm_right, orient=HORIZONTAL, length=200, maximum=255)
 bar_defense.grid(row=2,column=1, padx=(0,10), pady=5)
 
